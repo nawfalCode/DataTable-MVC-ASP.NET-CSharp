@@ -1,0 +1,67 @@
+﻿@model BookEample.Models.Auctions
+
+@{
+    ViewBag.Title = "Details";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery DataTables/ASP.NET MVC Integration</title>
+    <link href="~/Content/jquery-ui.css"
+          rel="stylesheet" type="text/css" />
+    <link href="~/Content/dataTables.jqueryui.css"
+          rel="stylesheet" type="text/css" />
+
+
+
+    <script src="~/Scripts/jquery-1.11.1.min.js"
+            type="text/javascript"></script>
+    <script src="~/Scripts/jquery.dataTables.js"
+            type="text/javascript"></script>
+    <script src="~/Scripts/dataTables.jqueryui.js"
+            type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#table1').dataTable();
+
+        })
+    </script>
+</head>
+<body>
+
+
+    <h2>Details</h2>
+
+    <table class="display" id="table1" width="100%">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].Title)</th>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].Description)</th>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].StartPrice) </th>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].CurrentPrice)</th>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].StartTime)</th>
+                <th>@Html.DisplayNameFor(model => Model.AllAuctions[0].EndTime)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var auction in Model.AllAuctions)
+            {
+
+                <tr>
+                    <td>@Html.DisplayFor(model => auction.Title)</td>
+                    <td>@Html.DisplayFor(model => auction.Description)</td>
+                    <td>@Html.DisplayFor(model => auction.StartPrice)</td>
+                    <td>@Html.DisplayFor(model => auction.CurrentPrice)</td>
+                    <td>@Html.DisplayFor(model => auction.StartTime)</td>
+                    <td>@Html.DisplayFor(model => auction.EndTime)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
